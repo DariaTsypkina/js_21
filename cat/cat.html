@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Опросник для владельцев котов</title>
+    <link rel="shortcut icon" href="https://www.flaticon.com/premium-icon/icons/svg/2171/2171991.svg" type="image/svg">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .other {
+            width: 250px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Опросник о вашем пушистом питомце</h1>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2ceJcBr3Ee-FBQTCkvX2CxJdBT9g84HZXug&usqp=CAU"
+            alt="cat">
+    </header>
+    <main>
+        <form id="form">
+            <div>
+                <label for="catname">Кличка питомца:</label>
+                <input type="text" id="catname" name="catname" required>
+            </div>
+            <fieldset>
+                <legend>Контактные данные владельца</legend>
+                <div>
+                    <label for="hostname">Имя:</label>
+                    <input type="text" id="hostname" name="hostname" required>
+                </div>
+                <div>
+                    <label for="hostsurname">Фамилия:</label>
+                    <input type="text" id="hostsurname" name="hostsurname" optional>
+                </div>
+                <div>
+                    <label for="tel">Телефон:</label>
+                    <input type="tel" id="tel" minlength="11" name="tel">
+                </div>
+                <div>
+                    <label for="town">Город проживания:</label>
+                    <input type="text" id="town" name="town">
+                </div>
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+            </fieldset>
+            <div>
+                <label for="catfamily"> Порода питомца:</label>
+                <select name="catfamily" id="catfamily" name="catfamily" required>
+                    <option value="" disabled selected>Выберите породу</option>
+                    <option value="Мейн-Кун">Мейн-Кун</option>
+                    <option value="Абиссинская">Абиссинская</option>
+                    <option value="Шотландская вислоухая">Шотландская вислоухая</option>
+                    <option value="Сфинкс">Сфинкс</option>
+                    <option value="Сибирская">Сибирская</option>
+                    <option value="Сиамская">Сиамская</option>
+                    <option value="Чаузи">Чаузи</option>
+                    <option value="Ориентальная">Ориентальная</option>
+                    <option value="Персидская">Персидская</option>
+                    <option value="Корат">Корат</option>
+                    <option value="Другое...">Другое...</option>
+                </select>
+            </div>
+            <div>
+                <label for="otherfamily">Другое...</label>
+                <input class="other" type="text" id="otherfamily" name="otherfamily"
+                    placeholder="Укажите породу, если ее нет в списке">
+            </div>
+            <div>
+                <label for="age">Возраст питомца:</label>
+                <input type="number" id="age" min="1" step="1" name="age" required
+                    placeholder="Введите возврат в месяцах">
+            </div>
+            <div>
+                <div>Чем питается (выберите все подходящие варианты):</div>
+                <input type="checkbox" name="meal" id="dry" value="Сухой">
+                <label for="dry">Сухой</label> <br>
+                <input type="checkbox" name="meal" id="wet" value="Влажный">
+                <label for="wet">Влажный</label> <br>
+                <input type="checkbox" name="meal" id="nat" value="Натуральный">
+                <label for="nat">Натуральный</label>
+            </div>
+            <div>
+                <div>Пол питомца:</div>
+                <input type="radio" name="sex" id="male" required value="male">
+                <label for="male">Самец</label><br>
+                <input type="radio" name="sex" id="female" required value="female">
+                <label for="female">Самка</label>
+            </div>
+            <div>
+                <label for="comment">Комментарий владельца:</label> <br>
+                <textarea name="comment" id="comment" cols="30" rows="10" maxlength="150"
+                    placeholder="Введите комментарий"></textarea>
+            </div>
+            <div>
+                <label for="photo">Приложите фото питомца:</label> <br>
+                <input type="file" id="photo" name="photo">
+            </div>
+            <div>
+                <input id="button" type="submit" value="Отправить">
+            </div>
+        </form>
+    </main>
+
+    <script>
+        //Написать POST-запрос, который будет срабатывать при нажатии на кнопку "Отправить" из нашей уже готовой формы для владельцев котиков (задание 1 недели 18). Реализовать через FormData.
+
+        document.getElementById("button").onclick = function (event) {
+            event.preventDefault();
+
+            fetch("https://httpbin.org/post", {
+                    method: "POST",
+                    body: new FormData(document.getElementById('form'))
+                })
+                .then(response => response.json())
+                .then(user => {
+                    console.log(user);
+                })
+                .catch(err => console.log(err));
+        }
+    </script>
+</body>
+
+</html>

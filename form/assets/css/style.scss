@@ -1,0 +1,145 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 600px;
+
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 2px;
+
+    box-shadow: -2px 28px 30px 0px rgba(34, 60, 80, 0.16);
+
+    >.title {
+        margin-bottom: 20px;
+    }
+
+    input,
+    select {
+        margin-bottom: 20px;
+        width: 300px;
+
+        border: none;
+        border-bottom: 1px solid gray;
+    }
+}
+
+.button {
+    margin-bottom: 40px;
+    width: 300px;
+    height: 50px;
+
+    font-size: larger;
+    color: white;
+    letter-spacing: 2px;
+
+    border: none;
+    border-radius: 12px;
+    background-image: linear-gradient(to right, #E48261 0%, #505ADD 51%, #E48261 100%);
+    background-size: 200% auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    transition: .5s;
+    cursor: pointer;
+
+    &:hover {
+        cursor: pointer;
+        background-position: right center;
+    }
+}
+
+.option {
+    color: black;
+}
+
+.checkbox-field {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 20px;
+    width: 300px;
+
+    text-align: right;
+
+    border: none;
+}
+
+.label {
+    letter-spacing: 0px;
+    font-size: smaller;
+}
+
+.checkbox {
+    position: absolute;
+    right: 140px;
+    top: 12px;
+
+    cursor: pointer;
+}
+
+.error-message,
+#errorsInfo {
+    color: red;
+    font-weight: bolder;
+    letter-spacing: 0px;
+}
+
+#errorsInfo {
+    position: absolute;
+    right: -21%;
+    top: 41%;
+    padding: 10px;
+
+    font-size: smaller;
+    line-height: 150%;
+    text-align: center;
+
+    background-color: white;
+    box-shadow: -2px 28px 30px 0px rgba(34, 60, 80, 0.16);
+    border-radius: 12px;
+    z-index: 1;
+}
+
+.password-validation {
+    display: none;
+    position: absolute;
+    left: 76%;
+    bottom: 30%;
+
+    padding-left: 25px;
+    width: 300px;
+
+    font-size: smaller;
+    letter-spacing: normal;
+
+    background-color: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+    z-index: 1;
+}
+
+h4 {
+    margin-top: 14px;
+    margin-bottom: 0;
+}
+
+ul {
+    padding-left: 15px;
+}
+
+.valid {
+    color: green;
+}
+
+.invalid {
+    color: red;
+}

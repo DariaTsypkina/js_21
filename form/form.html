@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="assets/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap" rel="stylesheet">
+    <title>Form</title>
+</head>
+
+<body>
+
+    <form class="form" name="form" id="form" onsubmit="return false">
+        <h1 class="title">Регистрация</h1>
+        <input type="text" class="name" id="name" placeholder="Имя*" required>
+        <input type="text" class="surname" id="surname" placeholder="Фамилия*" required>
+        <input type="text" class="login" id="login" placeholder="Логин*" required>
+        <select name="select" id="select" class="select" required>
+            <option class="option" value="who" disabled selected="selected">Как к вам обращаться?*
+            </option>
+            <option class="option" value="mr">Mr</option>
+            <option class="option" value="mrs">Mrs</option>
+            <option class="option" value="miss">Miss</option>
+            <option class="option" value="meow">Meow</option>
+        </select>
+        <input type="email" class="email" id="email" placeholder="Email*" autocomplete="email" required>
+        <input type="password" class="password" id="password0" placeholder="Пароль*" autocomplete="new-password"
+            required>
+        <input type="password" class="password" id="password1" placeholder="Повторите пароль*"
+            autocomplete="new-password" required>
+        <input type="tel" class="tel" id="tel" placeholder="Телефон*" required>
+        <div class="checkbox-field">
+            <label class="label" id="label" for="checkbox">Регистрируясь, вы соглашаетесь соблюдать правила
+                сообщества</label>
+            <input class="checkbox" id="checkbox" type="checkbox" name="checkbox">
+        </div>
+        <button type="submit" id="submit" class="button" onclick="send();">Зарегистрироваться</button>
+        <div id="errorsInfo"></div>
+    </form>
+
+    <script type="text/javascript" src="js/form.js"></script>
+</body>
+
+</html>
